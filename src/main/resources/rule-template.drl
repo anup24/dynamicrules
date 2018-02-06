@@ -1,0 +1,19 @@
+template header
+
+rule
+eventType
+
+package com.dynamicrules;
+
+global com.dynamicrules.RuleDecision ruleDecision;
+
+template "alert"
+
+rule "alert_@{row.rowNumber}"
+when
+    @{eventType}(@{rule})
+then
+    ruleDecision.setAlert(Boolean.TRUE);
+end
+
+end template
